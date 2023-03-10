@@ -1,5 +1,6 @@
-import pyttsx3 #pip install pyttsx3
-import speech_recognition as sr #pip install speechRecognition
+import pyttsx3 
+#use pip install pyttsx3 to install the text-to-speech conversion library 
+import speech_recognition as sr #use pip install speechRecognition library
 import datetime
 import wikipedia #pip install wikipedia
 import webbrowser
@@ -28,10 +29,10 @@ def wishMe():
     else:
         speak("Good Evening!")  
 
-    speak("I am Jarvis Sir. Please tell me how may I help you")       
+    speak("I am Jarvis. Please tell me how may I help you")       
 
 def takeCommand():
-    #It takes microphone input from the user and returns string output
+    #It takes input from the user using the microphone and returns a string output
 
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -64,7 +65,7 @@ if __name__ == "__main__":
     # if 1:
         query = takeCommand().lower()
 
-        # Logic for executing tasks based on query
+        #executing tasks based on query
         if 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace("wikipedia", "")
@@ -84,7 +85,7 @@ if __name__ == "__main__":
 
 
         elif 'play music' in query:
-            music_dir = 'D:\\Non Critical\\songs\\Favorite Songs2'
+            music_dir = 'D:\\Non Critical\\songs\\Favorite Songs2' #address of the folder where audio is stored in the PC
             songs = os.listdir(music_dir)
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
@@ -95,16 +96,16 @@ if __name__ == "__main__":
             print(the time is{strTime})
 
         elif 'open code' in query:
-            codePath = "D:\\Users\\vishu\\AppData\\Local\\Programs\\Microsoft VS Code \\ Code.exe"
+            codePath = "D:\\Users\\tush0707\\AppData\\Local\\Programs\\Microsoft VS Code \\ Code.exe"
             os.startfile(codePath)
 
         elif 'email to vishwesh' in query:
             try:
                 speak("What should I say?")
                 content = takeCommand()
-                to = "vishug730@gmail@gmail.com"    
+                to = "tusharsharmaa07@gmail@gmail.com"    
                 sendEmail(to, content)
-                speak("Email has been sent!")
+                speak("Your Email has been sent!")
             except Exception as e:
                 print(e)
                 speak("Sorry my friend . I am not able to send this email")  
